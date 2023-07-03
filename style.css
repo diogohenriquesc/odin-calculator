@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+:root {
+  --body-bg: #D1C6AD;
+  --calc-bg: #F5EFFF;
+  --calc-bc: #0B1D51;
+
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+body {
+  background-color: var(--body-bg);
+  font-family: 'Chakra Petch', sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.calculator {
+  background-color: var(--calc-bg);
+  padding: 2.1875rem 1.5625rem;
+  border-radius: .625rem;
+  box-shadow: 0 10px var(--calc-bc);
+  border: 2px solid black;
+}
+
+.calculator__display {
+  border: .125rem solid black;
+  border-radius: .5rem;
+  padding: 12px 16px;
+  text-align: end;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.calculator__buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem .5rem;
+  grid-template-areas:
+    "btn-7 btn-8 btn-9 btn-add"
+    "btn-4 btn-5 btn-6 btn-sub"
+    "btn-1 btn-2 btn-3 btn-multi"
+    "btn-point btn-0 btn-equal btn-divide"
+    "btn-clear btn-clear btn-delete btn-delete"
+  ;
+}
+
+.calculator__buttons button {
+  padding: 1rem 1.4rem;
+  font-size: 1.3rem;
+  background-color: transparent;
+  border: .0625rem solid black;
+  border-radius: .5rem;
+  box-shadow: 0 7px var(--calc-bc);
+  cursor: pointer;
+}
+
+.calculator__buttons button:active {
+  box-shadow: 0 2px var(--calc-bc);
+  position: relative;
+  bottom: -5px;
+}
+
+.calculator__buttons button[data-value='1'] {
+  grid-area: btn-1;
+}
+
+.calculator__buttons button[data-value='2'] {
+  grid-area: btn-2;
+}
+
+.calculator__buttons button[data-value='3'] {
+  grid-area: btn-3;
+}
+
+.calculator__buttons button[data-value='4'] {
+  grid-area: btn-4;
+}
+
+.calculator__buttons button[data-value='5'] {
+  grid-area: btn-5;
+}
+
+.calculator__buttons button[data-value='6'] {
+  grid-area: btn-6;
+}
+
+.calculator__buttons button[data-value='7'] {
+  grid-area: btn-7;
+}
+
+.calculator__buttons button[data-value='8'] {
+  grid-area: btn-8;
+}
+
+.calculator__buttons button[data-value='9'] {
+  grid-area: btn-9;
+}
+
+.calculator__buttons button[data-value='0'] {
+  grid-area: btn-0;
+}
+
+.calculator__buttons button[data-value='add'] {
+  grid-area: btn-add;
+}
+
+.calculator__buttons button[data-value='subtract'] {
+  grid-area: btn-sub;
+}
+
+.calculator__buttons button[data-value='multiply'] {
+  grid-area: btn-multi;
+}
+
+.calculator__buttons button[data-value='divide'] {
+  grid-area: btn-divide;
+}
+
+.calculator__buttons button[data-value='equal'] {
+  grid-area: btn-equal;
+}
+
+.calculator__buttons button[data-value='point'] {
+  grid-area: btn-point;
+}
+
+.calculator__buttons button[data-value='clear'] {
+  grid-area: btn-clear;
+}
+
+.calculator__buttons button[data-value='delete'] {
+  grid-area: btn-delete;
+}
