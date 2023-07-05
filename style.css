@@ -41,6 +41,11 @@ body {
   font-size: 1.5rem;
 }
 
+.calculator__display-value:empty::before {
+  content: '';
+  display: inline-block;
+}
+
 .calculator__buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -130,7 +135,7 @@ body {
   grid-area: btn-equal;
 }
 
-.calculator__buttons button[data-value='point'] {
+.calculator__buttons button[data-value='.'] {
   grid-area: btn-point;
 }
 
