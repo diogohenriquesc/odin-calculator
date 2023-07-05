@@ -3,6 +3,7 @@ const btnOperators = document.querySelectorAll('.btn-opr');
 const btnEqual = document.querySelector('.btn-equal');
 const btnClear = document.querySelector('.calc__btn[data-value="clear"]');
 const btnDelete = document.querySelector('.calc__btn[data-value="delete"]');
+const btnDecimal = document.querySelector('.calc__btn[data-value="."]');
 
 let displayContent = '';
 let number1 = null;
@@ -14,6 +15,7 @@ btnOperators.forEach((btn) => btn.addEventListener('click', (e) => operatorClick
 btnEqual.addEventListener('click', equalClick);
 btnClear.addEventListener('click', clear);
 btnDelete.addEventListener('click', deleteEntry);
+btnDecimal.addEventListener('click', decimalClick);
 
 function numericClick(e) {
 	displayContent += `${e.target.dataset.value}`;
@@ -48,6 +50,11 @@ function equalClick() {
 	displayContent = operationResult;
 }
 
+function decimalClick() {
+	if (!displayContent.includes('.')) displayContent += '.';
+	updateDisplay(displayContent);
+}
+
 function updateDisplay(value) {
 	document.querySelector('.calculator__display-value').textContent = value;
 }
@@ -68,13 +75,13 @@ function deleteEntry() {
 function operate(operator, n1, n2) {
 	switch (operator) {
 		case '+':
-			return add(n1, n2);
+			return Math.round(add(n1, n2) * 10000) / 10000;
 		case '-':
-			return subtract(n1, n2);
+			return Math.round(subtract(n1, n2) * 10000) / 10000;
 		case '*':
-			return multiply(n1, n2);
+			return Math.round(multiply(n1, n2) * 10000) / 10000;
 		case '/':
-			return divide(n1, n2);
+			return Math.round(divide(n1, n2) * 10000) / 10000;
 	}
 }
 
@@ -94,3 +101,37 @@ function divide(n1, n2) {
 	return n1 / n2;
 }
 
+document.addEventListener('keydown', (e) => {
+	e.preventDefault();
+
+	switch (e.key) {
+		case '1':
+		case '2':
+		case '3':
+		case '4':
+		case '5':
+		case '6':
+		case '7':
+		case '8':
+		case '9':
+		case '0':
+		case '.':
+		case '+':
+		case '-':
+		case '/':
+		case '*':
+			document.querySelector(`.calc__btn[data-value="${e.key}"]`).click();
+			break;
+		case 'Backspace':
+			document.querySelector('.calc__btn[data-value="delete"]').click();
+			break;
+		case 'c':
+		case 'C':
+			document.querySelector('.calc__btn[data-value="clear"]').click();
+			break;
+		case 'Enter':
+		case '=':
+			document.querySelector('.calc__btn[data-value="equal"]').click();
+			break;
+	}
+})

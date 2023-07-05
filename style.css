@@ -115,19 +115,19 @@ body {
   grid-area: btn-0;
 }
 
-.calculator__buttons button[data-value='add'] {
+.calculator__buttons button[data-value='+'] {
   grid-area: btn-add;
 }
 
-.calculator__buttons button[data-value='subtract'] {
+.calculator__buttons button[data-value='-'] {
   grid-area: btn-sub;
 }
 
-.calculator__buttons button[data-value='multiply'] {
+.calculator__buttons button[data-value='*'] {
   grid-area: btn-multi;
 }
 
-.calculator__buttons button[data-value='divide'] {
+.calculator__buttons button[data-value='/'] {
   grid-area: btn-divide;
 }
 
