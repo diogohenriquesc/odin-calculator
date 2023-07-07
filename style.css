@@ -4,7 +4,9 @@
   --body-bg: #D1C6AD;
   --calc-bg: #F5EFFF;
   --calc-bc: #0B1D51;
-
+  --clr-num: #ffb703;
+  --clr-opr: #E54B4B;
+  --clr-control: #657ED4;
 }
 
 *,
@@ -63,16 +65,48 @@ body {
   padding: 1rem 1.4rem;
   font-size: 1.3rem;
   background-color: transparent;
-  border: .0625rem solid black;
+  border: .0625rem solid rgba(0, 0, 0, 20%);
   border-radius: .5rem;
   box-shadow: 0 7px var(--calc-bc);
   cursor: pointer;
 }
 
 .calculator__buttons button:active {
-  box-shadow: 0 2px var(--calc-bc);
   position: relative;
   bottom: -5px;
+}
+.calculator__buttons .btn-num {
+  box-shadow: 0 7px var(--clr-num);
+}
+
+.calculator__buttons .btn-num:active {
+  box-shadow: 0 2px var(--clr-num);
+}
+
+.calculator__buttons .btn-opr {
+  box-shadow: 0 7px var(--clr-opr);
+}
+
+.calculator__buttons .btn-opr:active {
+  box-shadow: 0 2px var(--clr-opr);
+}
+
+.calculator__buttons .btn-control {
+  box-shadow: 0 7px var(--clr-control);
+} 
+
+.calculator__buttons .btn-control:active {
+  box-shadow: 0 2px var(--clr-control);
+}
+
+.calculator__buttons .btn-equal,
+.calculator__buttons .btn-decimal {
+  box-shadow: 0 7px var(--clr-control); 
+}
+
+.calculator__buttons .btn-equal:active,
+.calculator__buttons .btn-decimal:active {
+  box-shadow: 0 2px var(--clr-control);
 }
 
 .calculator__buttons button[data-value='1'] {
